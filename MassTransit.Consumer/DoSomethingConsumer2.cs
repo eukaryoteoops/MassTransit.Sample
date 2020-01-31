@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using MassTransit.Common;
 using Serilog;
 
-namespace MassTransit.Sample
+namespace MassTransit.Consumer
 {
-    public class DoSomethingConsumer : IConsumer<SomeModel>
+    public class DoSomethingConsumer2 : IConsumer<SomeModel2>
     {
         private readonly ILogger _log;
 
-        public DoSomethingConsumer(ILogger log)
+        public DoSomethingConsumer2(ILogger log)
         {
             _log = log;
         }
 
-        public async Task Consume(ConsumeContext<SomeModel> context)
+        public async Task Consume(ConsumeContext<SomeModel2> context)
         {
             var model = context.Message;
             _log.Error($"{this.GetType().Name}");
